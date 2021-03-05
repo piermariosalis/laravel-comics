@@ -1,16 +1,16 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+use App\Comic;
+class Comic extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        //$this->call(ComicSeeder::class);
+
     }
 }

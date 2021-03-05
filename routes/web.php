@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PageController@index')->name('index');
+
+Route::get('details', 'PageController@details')->name('details');
+
+Auth::routes(['register' => false]);
+
+
+
+Route::middleware('auth')->name('admin.')->namespace('Admin')->prefix('admin')->group(function () {
+    Route::resource('comics', 'ComicController');
+    Route::get('admin/comics', 'HomeController@index')->name('index');
+    Route::get('create', 'HomeController@create')->name('create');
+
 });
